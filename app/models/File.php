@@ -297,6 +297,7 @@ class App_Model_File extends Fz_Db_Table_Row_Abstract {
             $mimetype = $mimes [$ext];
         else if (function_exists ('finfo_file')) {
             $file = finfo_open (FILEINFO_MIME_TYPE);
+            fz_log ('disque location '.$this->getOnDiskLocation());
             $mimetype = finfo_file ($file, $this->getOnDiskLocation (), FILEINFO_MIME_TYPE);
             finfo_close ($file);
         }
@@ -325,6 +326,5 @@ class App_Model_File extends Fz_Db_Table_Row_Abstract {
             'png',
         ));
     }
-
 
 }

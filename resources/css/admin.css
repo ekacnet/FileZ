@@ -55,6 +55,7 @@ table.data {
 }
 table.data th, table.data td {
 	padding: 4px 6px;
+    font-size: 1em;
 }
 table.data th {
 	background: #DDD;
@@ -66,5 +67,37 @@ table.data th {
 table.data td {
 	background: white;
 	border: 1px solid #DDD;
-	font-size: 0.8em;
+    text-align: center;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+    color: #1E52A1;
+    float: right;
+    margin-right: 5px;
+}
+
+.pager {
+    margin-top: 30px;
+
+}
+
+.pager input {
+    width: 50px;
+    text-align: center;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th{
+    font-size: 10pt !important;
+}
+
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+    background-color: #BAD1DD !important;
+    font-size: 10pt !important;
+}
+
+.pagesize {
+    background-color: #EAE6E0;
+    color: gray;
 }

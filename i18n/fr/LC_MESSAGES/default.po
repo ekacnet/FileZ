@@ -201,6 +201,10 @@ msgstr "Gérer les fichiers"
 msgid "Name"
 msgstr "Nom"
 
+#: /home/didrya/filez/app/views/user/index.php:14
+msgid "Max size of data"
+msgstr "Max quota"
+
 #: /home/didrya/filez/app/views/file/index.php:8
 msgid "Author"
 msgstr "Auteur"
@@ -208,7 +212,7 @@ msgstr "Auteur"
 #: /home/didrya/filez/app/views/file/index.php:9
 #: /home/didrya/filez/app/views/user/show.php:14
 msgid "Availability"
-msgstr "disponibilité"
+msgstr "Disponibilité"
 
 #: /home/didrya/filez/app/views/file/index.php:10
 #: /home/didrya/filez/app/views/user/show.php:15
@@ -490,7 +494,7 @@ msgstr "Rôle"
 
 #: /home/didrya/filez/app/views/user/index.php:12
 msgid "File count"
-msgstr "Nom de fichiers"
+msgstr "Nb de fichiers"
 
 #: /home/didrya/filez/app/views/user/index.php:13
 msgid "Disk usage"

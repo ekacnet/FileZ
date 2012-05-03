@@ -47,7 +47,9 @@ class Fz_Db_Schema {
         }
 
         if (! empty ($sql))
+        {
             Fz_Db::getConnection ()->exec ($sql);
+        }
     }
 
     /**

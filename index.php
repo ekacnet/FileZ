@@ -44,7 +44,7 @@
  * 
  */
 
-define ('FZ_VERSION', '2.1.0-2');
+define ('FZ_VERSION', '2.1.0-3');
 
 /**
  * Loading Zend for i18n classes and autoloader
@@ -152,7 +152,6 @@ function before () {
     }
 }
 
-
 /**
  * Loading Limonade PHP
  */
@@ -169,7 +168,6 @@ if (fz_config_load (dirname(__FILE__).DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEP
     run ();
     exit;
 }
-
 
 //                                              //             // 
 // Url Schema                                   // Controller  // Action
@@ -190,6 +188,7 @@ fz_dispatch_get  ('/admin/users'                ,'User'        ,'index');
 fz_dispatch_get  ('/admin/users/new'            ,'User'        ,'create');
 fz_dispatch_post ('/admin/users/new'            ,'User'        ,'postnew');
 fz_dispatch_get  ('/admin/users/:id'            ,'User'        ,'show');
+fz_dispatch_post ('/admin/users/editQuota'      ,'User'        ,'editQuota');
 fz_dispatch_get  ('/admin/users/:id/delete'     ,'User'        ,'delete');
 fz_dispatch_get  ('/admin/users/:id/edit'       ,'User'        ,'edit');
 fz_dispatch_post ('/admin/users/:id/edit'       ,'User'        ,'update');

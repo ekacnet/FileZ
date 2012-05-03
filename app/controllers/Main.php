@@ -20,10 +20,20 @@ class App_Controller_Main extends Fz_Controller {
         $this->secure ();
         $user = $this->getUser ();
         $freeSpaceLeft = max (0, Fz_Db::getTable('File')->getRemainingSpaceForUser ($user));
+
+//        if(!isset($maxUploadSize)){
         $maxUploadSize = min (
-             Fz_Db::getTable('File')->shorthandSizeToBytes (ini_get ('upload_max_filesize')),
-             Fz_Db::getTable('File')->shorthandSizeToBytes (ini_get ('post_max_size')),
-                $freeSpaceLeft);
+            Fz_Db::getTable('File')->shorthandSizeToBytes($user->getDiskFree()),
+            Fz_Db::getTable('File')->shorthandSizeToBytes (ini_get ('upload_max_filesize')),
+            Fz_Db::getTable('File')->shorthandSizeToBytes (ini_get ('post_max_size')),
+              $freeSpaceLeft);
+      //  }
+
+        $quota = $user->getQuota();
+
+        // We set data maximum size of data
+        $tableau = option('fz_config');
+        $tableau['app']['user_quota'] = $quota;
 
         $progressMonitor = fz_config_get ('app', 'progress_monitor');
         $progressMonitor = new $progressMonitor ();
@@ -40,7 +50,7 @@ class App_Controller_Main extends Fz_Controller {
         set ('sharing_destinations' , fz_config_get ('app', 'sharing_destinations', array()));
         set ('disk_usage'           , array (
             'space' => '<b id="disk-usage-value">'.bytesToShorthand (Fz_Db::getTable('File')->getTotalDiskSpaceByUser ($user)).'</b>',
-            'quota' => fz_config_get('app', 'user_quota')));
+            'quota' => $quota));//fz_config_get('app', 'user_quota')));
         return html ('main/index.php');
     }
 }

@@ -22,7 +22,7 @@ if (! console) // In case the browser doesn't have a console
     var console = {log: function (txt) {}};
 
 // Auto hide current notifications
-$('document').ready (function () {$('.notif').configureNotification ();});
+$(document).ready (function () {$('.notif').configureNotification ();});
 
 (function($) {
 
@@ -91,6 +91,7 @@ $.fn.initFilez = function (options) {
 /**
  *
  */
+
 $.fn.initFileActions = function () {
 
     $('a.share', this).click (function (e) {
