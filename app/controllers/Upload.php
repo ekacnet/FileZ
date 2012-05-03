@@ -119,6 +119,10 @@ class App_Controller_Upload extends Fz_Controller {
         try {
             $file->save ();
 
+/*            $maxUploadSize = $user->getDiskFree();
+            set ('max_upload_size'      , $maxUploadSize);
+            echo "max size: ".$max_upload_size;die;*/
+
             if ($file->moveUploadedFile ($uploadedFile)) {
                 fz_log ('Saved "'.$file->file_name.'"['.$file->id.'] uploaded by '.$user);
                 return $file;
@@ -271,7 +275,7 @@ class App_Controller_Upload extends Fz_Controller {
                 break;
             case UPLOAD_ERR_QUOTA_EXCEEDED:
                 $response ['statusText'] .= __r('You exceeded your disk space quota (%space%).',
-                    array ('space' => fz_config_get ('app', 'user_quota')));
+                    array ('space' => $this->getUser()->getQuota().'G'));
         }
         return $this->returnData ($response);
     }
